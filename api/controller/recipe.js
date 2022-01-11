@@ -26,7 +26,8 @@ const addRecipe = async (req, res) => {
     const recipe = Recipe({
         title: req.body.title,
         img: req.body.img,
-        process: req.body.process
+        process: req.body.process,
+        ingredients:req.body. ingredients
     });
     recipe.save()
         .then(result => {

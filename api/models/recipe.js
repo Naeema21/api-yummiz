@@ -13,6 +13,10 @@ const recipeSchema = mongoose.Schema({
         type: String,
         required: 'Please enter recipe'
     },
+    ingredients:{
+        type:String,
+        require:'Please enter ingraddients'
+    }
 },
     {
         timestamps: true,

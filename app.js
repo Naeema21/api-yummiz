@@ -2,7 +2,7 @@ const express = require('express')
 const app =express()
 const morgan = require('morgan')
 const db = require('./db')
-
+const recipeRoute = require('./api/routes/recipe')
 
 const bodyParser = require('body-parser')
 app.use(morgan('dev'))
@@ -23,7 +23,7 @@ app.use((req,res,next)=>{
     next();
 });
 
-
+app.use('/recipe', recipeRoute)
 
 app.get('/', (req, res) => {
 	res.send('Welcome to Yummiz!')

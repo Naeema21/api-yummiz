@@ -26,7 +26,7 @@ app.use((req,res,next)=>{
 
 
 app.get('/', (req, res) => {
-	res.send('Welcome to daruwale!')
+	res.send('Welcome to Yummiz!')
 });
 
 //error handling

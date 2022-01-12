@@ -21,6 +21,23 @@ const getAllData = async (req, res,) => {
 }
 
 
+//get single product data
+const getSingleRecipe = async (req, res,) => {
+    const id = req.params.id;
+    try {
+        const recipe = await Recipe.findById(id)
+        if (recipe.length != 0) {
+            res.status(200).json(recipe);
+        } else {
+            res.status(203).json({
+                message: 'No valid entry found for provided ID'
+            });
+        }
+    } catch (error) {
+        res.send('Error => ' + error)
+    }
+};
+
 //add product
 const addRecipe = async (req, res) => {
     const recipe = Recipe({
@@ -43,21 +60,6 @@ const addRecipe = async (req, res) => {
 }
 
 
-//update product
-// const updateProduct = async (req, res) => {
-//     const id = req.params.id;
-//     try {
-//         const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true })
-//         res.status(200).json({
-//             message: "Product Updated Successfull",
-//             updatedProduct
-//         })
-//     } catch (error) {
-//         res.status(500).json({
-//             error
-//         })
-//     }
-// }
 
 //delete product
 const deleteData = async (req, res) => {
@@ -76,6 +78,6 @@ module.exports =
 {
     getAllData,
     addRecipe,
-    deleteData
-
+    deleteData,
+    getSingleRecipe
 }
